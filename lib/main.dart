@@ -24,11 +24,27 @@ class MyApp extends StatelessWidget {
             )
           ],
         ),
-        body: const Padding(
-          padding: EdgeInsets.only(top: 15, left: 100),
-          child: Text(
-            "Your Widgets",
-            style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+        body: Padding(
+          padding: const EdgeInsets.only(top: 15, left: 100),
+          child: Column(
+            children: [
+              const Text(
+                "Your Widgets",
+                style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+              ),
+              FloatingActionButton(
+                onPressed: () {},
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                child: const Center(
+                  child: Icon(
+                    Icons.add,
+                    size: 25,
+                    color: Colors.blue,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
