@@ -9,13 +9,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
       home: Scaffold(
         appBar: AppBar(
-          actions: const [Icon(Icons.history), Icon(Icons.help)],
+          leading: const Icon(Icons.history),
+          actions: const [
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: Icon(Icons.info_outline),
+            )
+          ],
         ),
         body: const Padding(
           padding: EdgeInsets.only(top: 15, left: 100),
