@@ -15,6 +15,22 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.grey,
       ),
       home: Scaffold(
+        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+        floatingActionButton: Padding(
+          padding: const EdgeInsets.all(10),
+          child: FloatingActionButton(
+            onPressed: () {},
+            child: const Center(
+              child: Icon(
+                Icons.add,
+                size: 25,
+                color: Colors.blue,
+              ),
+            ),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          ),
+        ),
         appBar: AppBar(
           leading: const Icon(Icons.history),
           actions: const [
@@ -27,22 +43,10 @@ class MyApp extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.only(top: 15, left: 100),
           child: Column(
-            children: [
-              const Text(
+            children: const [
+              Text(
                 "Your Widgets",
                 style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-              ),
-              FloatingActionButton(
-                onPressed: () {},
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
-                child: const Center(
-                  child: Icon(
-                    Icons.add,
-                    size: 25,
-                    color: Colors.blue,
-                  ),
-                ),
               ),
             ],
           ),
