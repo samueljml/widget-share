@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widget_share/app/modules/information/page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,23 +18,14 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.grey,
           ),
-          home: const MyHomePage()),
+          home: const MyHomePage(),
+          routes: {"/information": (ctx) => const InformationScreen()}),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
-
-  PreferredSizeWidget get appBar => AppBar(
-        leading: const Icon(Icons.history),
-        actions: const [
-          Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Icon(Icons.info_outline),
-          )
-        ],
-      );
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +46,20 @@ class MyHomePage extends StatelessWidget {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         ),
       ),
-      appBar: appBar,
+      appBar: AppBar(
+        leading: const Icon(Icons.history),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: IconButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed("/information");
+              },
+              icon: const Icon(Icons.info_outline),
+            ),
+          )
+        ],
+      ),
       body: SafeArea(
         child: Column(
           children: const [
