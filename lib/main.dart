@@ -25,6 +25,16 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
+  PreferredSizeWidget get appBar => AppBar(
+        leading: const Icon(Icons.history),
+        actions: const [
+          Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Icon(Icons.info_outline),
+          )
+        ],
+      );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,25 +54,22 @@ class MyHomePage extends StatelessWidget {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         ),
       ),
-      appBar: AppBar(
-        leading: const Icon(Icons.history),
-        actions: const [
-          Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Icon(Icons.info_outline),
-          )
-        ],
-      ),
-      body: Column(
-        children: const [
-          Padding(
-            padding: EdgeInsets.only(top: 15, left: 100),
-            child: Text(
-              "Your Widgets",
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+      appBar: appBar,
+      body: SafeArea(
+        child: Column(
+          children: const [
+            Expanded(
+              flex: 1,
+              child: Center(
+                child: Text(
+                  "Your Widgets",
+                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                ),
+              ),
             ),
-          ),
-        ],
+            Expanded(flex: 5, child: SingleChildScrollView()),
+          ],
+        ),
       ),
     );
   }
