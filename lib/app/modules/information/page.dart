@@ -8,6 +8,7 @@ class InformationScreen extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text("Information"),
+          elevation: 0,
         ),
         body: SingleChildScrollView(
             child: Padding(

@@ -11,14 +11,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = ThemeData(primarySwatch: Colors.grey);
+
     return MediaQuery(
       data: const MediaQueryData(),
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
-          theme: ThemeData(
-            primarySwatch: Colors.grey,
-          ),
+          theme: theme.copyWith(
+              scaffoldBackgroundColor: const Color.fromRGBO(245, 245, 245, 1),
+              textTheme: const TextTheme(
+                  headline6: TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.bold)),
+              colorScheme: theme.colorScheme.copyWith(
+                  primary: const Color.fromRGBO(245, 245, 245, 1),
+                  secondary: const Color.fromRGBO(245, 245, 245, 1),
+                  onBackground: Colors.black)),
           home: const MyHomePage(),
           routes: {
             "/information": (ctx) => const InformationScreen(),
@@ -51,6 +59,8 @@ class MyHomePage extends StatelessWidget {
         ),
       ),
       appBar: AppBar(
+        title: const Text("Your Widgets"),
+        elevation: 0,
         leading: IconButton(
             onPressed: () => Navigator.of(context).pushNamed("/history"),
             icon: const Icon(Icons.history)),
@@ -69,16 +79,7 @@ class MyHomePage extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: const [
-            Expanded(
-              flex: 1,
-              child: Center(
-                child: Text(
-                  "Your Widgets",
-                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-            Expanded(flex: 5, child: SingleChildScrollView()),
+            Expanded(child: SingleChildScrollView()),
           ],
         ),
       ),
