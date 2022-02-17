@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widget_share/app/modules/history/page.dart';
 import 'package:widget_share/app/modules/information/page.dart';
 
 void main() {
@@ -19,7 +20,10 @@ class MyApp extends StatelessWidget {
             primarySwatch: Colors.grey,
           ),
           home: const MyHomePage(),
-          routes: {"/information": (ctx) => const InformationScreen()}),
+          routes: {
+            "/information": (ctx) => const InformationScreen(),
+            "/history": (ctx) => const HistoryScreen(),
+          }),
     );
   }
 }
@@ -47,7 +51,9 @@ class MyHomePage extends StatelessWidget {
         ),
       ),
       appBar: AppBar(
-        leading: const Icon(Icons.history),
+        leading: IconButton(
+            onPressed: () => Navigator.of(context).pushNamed("/history"),
+            icon: const Icon(Icons.history)),
         actions: [
           Padding(
             padding: const EdgeInsets.all(10.0),
