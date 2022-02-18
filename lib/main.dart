@@ -14,9 +14,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = ThemeData(primarySwatch: Colors.grey);
-    var brightness = SchedulerBinding.instance!.window.platformBrightness;
-    bool isDarkMode = brightness == Brightness.dark;
-
     return MediaQuery(
       data: const MediaQueryData(),
       child: MaterialApp(
