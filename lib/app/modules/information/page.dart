@@ -12,7 +12,7 @@ class InformationScreen extends StatelessWidget {
         ),
         body: SingleChildScrollView(
             child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(32),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -21,14 +21,16 @@ class InformationScreen extends StatelessWidget {
                 style: TextStyle(
                     color: Colors.blue,
                     fontWeight: FontWeight.bold,
-                    fontSize: 18),
+                    fontSize: 21),
               ),
               Padding(
                 padding: const EdgeInsets.all(5),
                 child: Column(
-                  children: const [
+                  children: [
                     Text(
-                        "Step 1. Create a new widget. On the main screen, click the plus button then \"Create a new widget\". Once the widget is created you will be given the Widget ID"),
+                      "Step 1. Create a new widget. On the main screen, click the plus button then \"Create a new widget\". Once the widget is created you will be given the Widget ID",
+                      style: Theme.of(context).textTheme.bodyText1,
+                    ),
                   ],
                 ),
               )
