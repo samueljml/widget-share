@@ -39,6 +39,18 @@ class MyApp extends StatelessWidget {
                   primary: const Color.fromRGBO(245, 245, 245, 1),
                   secondary: const Color.fromRGBO(245, 245, 245, 1),
                   onBackground: Colors.black)),
+          darkTheme: ThemeData.dark().copyWith(
+              appBarTheme: const AppBarTheme(
+                elevation: 440,
+                backgroundColor: Color.fromRGBO(7, 7, 7, 1),
+                systemOverlayStyle: SystemUiOverlayStyle(
+                  statusBarColor: Color.fromRGBO(7, 7, 7, 1),
+                ),
+              ),
+              scaffoldBackgroundColor: const Color.fromRGBO(7, 7, 7, 1),
+              colorScheme: ThemeData.dark().colorScheme.copyWith(
+                    secondary: const Color.fromRGBO(31, 31, 31, 1),
+                  )),
           home: const MyHomePage(),
           routes: {
             "/information": (ctx) => const InformationScreen(),
