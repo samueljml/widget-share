@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:widget_share/app/modules/history/page.dart';
 import 'package:widget_share/app/modules/information/page.dart';
 
@@ -12,6 +14,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = ThemeData(primarySwatch: Colors.grey);
+    var brightness = SchedulerBinding.instance!.window.platformBrightness;
+    bool isDarkMode = brightness == Brightness.dark;
 
     return MediaQuery(
       data: const MediaQueryData(),
@@ -19,8 +23,16 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: theme.copyWith(
+              appBarTheme: const AppBarTheme(
+                elevation: 0,
+                systemOverlayStyle: SystemUiOverlayStyle(
+                    statusBarColor: Color.fromRGBO(245, 245, 245, 1),
+                    statusBarBrightness: Brightness.light,
+                    statusBarIconBrightness: Brightness.dark),
+              ),
               scaffoldBackgroundColor: const Color.fromRGBO(245, 245, 245, 1),
               textTheme: const TextTheme(
+                  bodyText1: TextStyle(color: Colors.black, fontSize: 14),
                   headline6: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.bold)),
               colorScheme: theme.colorScheme.copyWith(
@@ -60,7 +72,6 @@ class MyHomePage extends StatelessWidget {
       ),
       appBar: AppBar(
         title: const Text("Your Widgets"),
-        elevation: 0,
         leading: IconButton(
             onPressed: () => Navigator.of(context).pushNamed("/history"),
             icon: const Icon(Icons.history)),
