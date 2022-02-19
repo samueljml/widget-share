@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:widget_share/app/modules/history/page.dart';
 import 'package:widget_share/app/modules/information/page.dart';
