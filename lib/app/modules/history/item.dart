@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:widget_share/app/global_widgets/history_item.dart';
 
 class Item extends StatelessWidget {
-  const Item({Key? key}) : super(key: key);
+  final HistoryItem item;
+
+  const Item(this.item, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -10,11 +13,11 @@ class Item extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              width: MediaQuery.of(context).size.width * 0.95,
+            SizedBox(
+              width: MediaQuery.of(context).size.width - 8,
               height: MediaQuery.of(context).size.width * 0.95,
-              decoration: BoxDecoration(
-                  color: Colors.blue, borderRadius: BorderRadius.circular(40)),
+              child: ClipRRect(
+                  borderRadius: BorderRadius.circular(50), child: item.image),
             ),
           ],
         ),
@@ -29,7 +32,6 @@ class Item extends StatelessWidget {
             ),
             selected: true,
             onSelected: (bool selected) {}),
-        const SizedBox(height: 15),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
