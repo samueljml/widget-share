@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widget_share/app/global_widgets/history_item.dart';
 import 'package:widget_share/app/modules/history/item.dart';
 
 class HistoryScreen extends StatelessWidget {
@@ -12,13 +13,32 @@ class HistoryScreen extends StatelessWidget {
         elevation: 0,
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.only(top: 15),
+        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 4),
         child: Wrap(
           runSpacing: 15,
-          children: const [
-            Item(),
-            Item(),
-            Item(),
+          children: [
+            Item(
+              HistoryItem(
+                Image.asset("assets/images/perfil.jpg", fit: BoxFit.fill),
+                DateTime(2020),
+              ),
+            ),
+            Item(
+              HistoryItem(
+                Image.asset(
+                  "assets/images/perfil.jpg",
+                ),
+                DateTime(2020),
+              ),
+            ),
+            Item(
+              HistoryItem(
+                Image.asset(
+                  "assets/images/perfil.jpg",
+                ),
+                DateTime(2020),
+              ),
+            ),
           ],
         ),
       ),
