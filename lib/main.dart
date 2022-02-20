@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:widget_share/app/global_widgets/widget_actions_dialog_box.dart';
 import 'package:widget_share/app/modules/history/page.dart';
 import 'package:widget_share/app/modules/information/page.dart';
 
@@ -63,19 +64,27 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.all(10),
+      floatingActionButton: Container(
+        height: 100,
+        width: 100,
+        padding: const EdgeInsets.all(15),
         child: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return const WidgetActionsDialogBox();
+                });
+          },
           child: const Center(
             child: Icon(
               Icons.add,
-              size: 25,
+              size: 35,
               color: Colors.blue,
             ),
           ),
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
         ),
       ),
       appBar: AppBar(
