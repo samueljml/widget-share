@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:widget_share/app/global_widgets/history_item.dart';
 import 'package:widget_share/app/modules/history/item.dart';
+import 'package:widget_share/app/utils/constants.dart';
 
 class HistoryScreen extends StatelessWidget {
   const HistoryScreen({Key? key}) : super(key: key);
@@ -13,7 +14,8 @@ class HistoryScreen extends StatelessWidget {
         elevation: 0,
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 4),
+        padding: const EdgeInsets.symmetric(
+            vertical: 15, horizontal: Constants.minPadding),
         child: Wrap(
           runSpacing: 15,
           children: [
