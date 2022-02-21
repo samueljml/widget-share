@@ -14,7 +14,27 @@ class NewWidgetFormScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
-          children: [],
+          children: [
+            Container(
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(25)),
+              child: TextFormField(
+                controller: widgetName,
+                textAlign: TextAlign.center,
+                decoration: const InputDecoration(
+                  hintText: "Give your widget a name",
+                  border: InputBorder.none,
+                  focusedBorder: OutlineInputBorder(),
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty || value.trim().isEmpty) {
+                    return "Plese enter a name";
+                  }
+                  return null;
+                },
+              ),
+            )
+          ],
         ),
       ),
     );
