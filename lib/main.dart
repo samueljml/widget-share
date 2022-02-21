@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:widget_share/app/global_widgets/widget_actions_dialog_box.dart';
 import 'package:widget_share/app/modules/history/page.dart';
 import 'package:widget_share/app/modules/information/page.dart';
+import 'package:widget_share/app/modules/new_widget_form/page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -52,6 +53,7 @@ class MyApp extends StatelessWidget {
           routes: {
             "/information": (ctx) => const InformationScreen(),
             "/history": (ctx) => const HistoryScreen(),
+            "/new-widget": (ctx) => const NewWidgetFormScreen(),
           }),
     );
   }

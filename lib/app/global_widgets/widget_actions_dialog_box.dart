@@ -25,25 +25,28 @@ class WidgetActionsDialogBox extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: const [
-                      Icon(
-                        Icons.add,
-                        color: Colors.blue,
-                        size: 35,
-                      ),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      Text(
-                        "Create a new widget",
-                        style: TextStyle(
-                            fontSize: 21,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold),
-                      )
-                    ],
+                  InkWell(
+                    onTap: () => Navigator.of(context).pushNamed("/new-widget"),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: const [
+                        Icon(
+                          Icons.add,
+                          color: Colors.blue,
+                          size: 35,
+                        ),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        Text(
+                          "Create a new widget",
+                          style: TextStyle(
+                              fontSize: 21,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
                   ),
                   Row(
                     children: const [
