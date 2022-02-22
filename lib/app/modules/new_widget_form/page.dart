@@ -10,6 +10,7 @@ class NewWidgetFormScreen extends StatelessWidget {
     final mediaQuery = MediaQuery.of(context);
     final freeWidth =
         mediaQuery.size.width - Constants.newWidgetFormPadding * 2;
+    const double spaceBetweenElements = 15;
 
     return Scaffold(
       appBar: AppBar(
@@ -18,7 +19,7 @@ class NewWidgetFormScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(Constants.newWidgetFormPadding),
         child: Wrap(
-          runSpacing: 15,
+          runSpacing: spaceBetweenElements,
           children: [
             Container(
               decoration:
@@ -60,6 +61,54 @@ class NewWidgetFormScreen extends StatelessWidget {
                           ),
                         ),
                       )),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                InkWell(
+                  child: Container(
+                    color: Colors.white,
+                    width: freeWidth / 2 - spaceBetweenElements / 2,
+                    height: freeWidth / 2 - spaceBetweenElements / 2,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Icon(
+                          Icons.photo,
+                          size: 60,
+                        ),
+                        SizedBox(height: spaceBetweenElements),
+                        Text(
+                          "Gallery",
+                          style: TextStyle(fontSize: 17),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(width: spaceBetweenElements),
+                InkWell(
+                  child: Container(
+                    color: Colors.white,
+                    width: freeWidth / 2 - spaceBetweenElements / 2,
+                    height: freeWidth / 2 - spaceBetweenElements / 2,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Icon(
+                          Icons.camera_alt,
+                          size: 60,
+                        ),
+                        SizedBox(height: spaceBetweenElements),
+                        Text(
+                          "Camera",
+                          style: TextStyle(fontSize: 17),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
