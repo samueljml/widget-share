@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widget_share/app/utils/constants.dart';
 
 class NewWidgetFormScreen extends StatelessWidget {
   const NewWidgetFormScreen({Key? key}) : super(key: key);
@@ -6,13 +7,16 @@ class NewWidgetFormScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextEditingController widgetName = TextEditingController();
+    final mediaQuery = MediaQuery.of(context);
+    final freeWidth =
+        mediaQuery.size.width - Constants.newWidgetFormPadding * 2;
 
     return Scaffold(
       appBar: AppBar(
         title: const Text("New Widget"),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(15),
+        padding: const EdgeInsets.all(Constants.newWidgetFormPadding),
         child: Wrap(
           runSpacing: 15,
           children: [
@@ -41,8 +45,8 @@ class NewWidgetFormScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  width: MediaQuery.of(context).size.width - 30,
-                  height: MediaQuery.of(context).size.width * 0.95,
+                  width: freeWidth,
+                  height: mediaQuery.size.width * 0.95,
                   color: Colors.white,
                   child: ClipRRect(
                       borderRadius: BorderRadius.circular(50),
