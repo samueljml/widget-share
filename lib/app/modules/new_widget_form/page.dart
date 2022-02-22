@@ -12,8 +12,9 @@ class NewWidgetFormScreen extends StatelessWidget {
         title: const Text("New Widget"),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
+        padding: const EdgeInsets.all(15),
+        child: Wrap(
+          runSpacing: 15,
           children: [
             Container(
               decoration:
@@ -22,8 +23,10 @@ class NewWidgetFormScreen extends StatelessWidget {
                 controller: widgetName,
                 textAlign: TextAlign.center,
                 decoration: const InputDecoration(
+                  filled: true,
+                  fillColor: Colors.white,
                   hintText: "Give your widget a name",
-                  border: InputBorder.none,
+                  border: OutlineInputBorder(),
                   focusedBorder: OutlineInputBorder(),
                 ),
                 validator: (value) {
@@ -33,7 +36,29 @@ class NewWidgetFormScreen extends StatelessWidget {
                   return null;
                 },
               ),
-            )
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width - 30,
+                  height: MediaQuery.of(context).size.width * 0.95,
+                  color: Colors.white,
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(50),
+                      child: const Padding(
+                        padding: EdgeInsets.all(30),
+                        child: Center(
+                          child: Text(
+                            "No image yet. Take a picture white the camera or add an image from your gallery.",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(),
+                          ),
+                        ),
+                      )),
+                ),
+              ],
+            ),
           ],
         ),
       ),
