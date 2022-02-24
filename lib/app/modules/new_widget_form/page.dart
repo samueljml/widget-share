@@ -112,6 +112,28 @@ class NewWidgetFormScreen extends StatelessWidget {
                 ),
               ],
             ),
+            InkWell(
+              child: Container(
+                color: Colors.white,
+                width: freeWidth,
+                padding: const EdgeInsets.all(10),
+                height: 50,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Icon(
+                      Icons.send,
+                      size: 30,
+                    ),
+                    Text(
+                      "Send",
+                      style: TextStyle(fontSize: 17),
+                    ),
+                    SizedBox(),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
