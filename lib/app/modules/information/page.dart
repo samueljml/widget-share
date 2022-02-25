@@ -24,11 +24,13 @@ class InformationScreen extends StatelessWidget {
                     fontSize: 21),
               ),
               Padding(
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.only(
+                  top: 5,
+                ),
                 child: Column(
                   children: [
                     Text(
-                      "Step 1. Create a new widget. On the main screen, click the plus button then \"Create a new widget\". Once the widget is created you will be given the Widget ID",
+                      "Step 1. Create a new widget. On the main screen, click the plus button then \"Create a new widget\". Once the widget is created you will be given the Widget ID\n\nStep 2. Send the Widget ID to your friend.\n\nStep 3. Your friend shoud add the Widget ID to their app. On the main screen, click the plus button then \"Add a friend's widget\".\n\nStep 4. That's it! You can now both send pictures to the same widget.",
                       style: Theme.of(context).textTheme.bodyText1,
                     ),
                   ],
