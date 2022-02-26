@@ -5,6 +5,7 @@ import 'package:widget_share/app/modules/history/page.dart';
 import 'package:widget_share/app/modules/information/page.dart';
 import 'package:widget_share/app/modules/new_widget_form/page.dart';
 import 'package:widget_share/app/modules/setting/page.dart';
+import 'package:widget_share/app/routes/Routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -52,10 +53,10 @@ class MyApp extends StatelessWidget {
                   )),
           home: const MyHomePage(),
           routes: {
-            "/information": (ctx) => const InformationScreen(),
-            "/history": (ctx) => const HistoryScreen(),
-            "/new-widget": (ctx) => const NewWidgetFormScreen(),
-            "/settings": (ctx) => const SettingsScreen(),
+            Routes.information: (ctx) => const InformationScreen(),
+            Routes.history: (ctx) => const HistoryScreen(),
+            Routes.newWidget: (ctx) => const NewWidgetFormScreen(),
+            Routes.settings: (ctx) => const SettingsScreen(),
           }),
     );
   }
@@ -94,14 +95,14 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Your Widgets"),
         leading: IconButton(
-            onPressed: () => Navigator.of(context).pushNamed("/history"),
+            onPressed: () => Navigator.of(context).pushNamed(Routes.history),
             icon: const Icon(Icons.history)),
         actions: [
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: IconButton(
               onPressed: () {
-                Navigator.of(context).pushNamed("/information");
+                Navigator.of(context).pushNamed(Routes.information);
               },
               icon: const Icon(Icons.info_outline),
             ),

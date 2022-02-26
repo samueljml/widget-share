@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widget_share/app/routes/Routes.dart';
 import 'package:widget_share/app/utils/constants.dart';
 
 class WidgetActionsDialogBox extends StatelessWidget {
@@ -26,7 +27,8 @@ class WidgetActionsDialogBox extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   InkWell(
-                    onTap: () => Navigator.of(context).pushNamed("/new-widget"),
+                    onTap: () =>
+                        Navigator.of(context).pushNamed(Routes.newWidget),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: const [

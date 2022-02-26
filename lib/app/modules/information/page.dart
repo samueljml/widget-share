@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:widget_share/app/routes/Routes.dart';
 
 class InformationScreen extends StatelessWidget {
   const InformationScreen({Key? key}) : super(key: key);
@@ -12,7 +13,7 @@ class InformationScreen extends StatelessWidget {
           actions: [
             IconButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed("/settings");
+                  Navigator.of(context).pushNamed(Routes.settings);
                 },
                 icon: const Icon(Icons.settings))
           ],
