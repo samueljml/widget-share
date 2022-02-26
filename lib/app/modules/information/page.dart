@@ -9,6 +9,13 @@ class InformationScreen extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Information"),
           elevation: 0,
+          actions: [
+            IconButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed("/settings");
+                },
+                icon: const Icon(Icons.settings))
+          ],
         ),
         body: SingleChildScrollView(
             child: Padding(
