@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:widget_share/app/global_widgets/widget_actions_dialog_box.dart';
-import 'package:widget_share/app/modules/history/page.dart';
-import 'package:widget_share/app/modules/information/page.dart';
-import 'package:widget_share/app/modules/new_widget_form/page.dart';
-import 'package:widget_share/app/modules/setting/page.dart';
 import 'package:widget_share/app/routes/Routes.dart';
+import 'package:widget_share/app/routes/routes/pages.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,45 +17,44 @@ class MyApp extends StatelessWidget {
     final ThemeData theme = ThemeData(primarySwatch: Colors.grey);
     return MediaQuery(
       data: const MediaQueryData(),
-      child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
-          theme: theme.copyWith(
-              appBarTheme: const AppBarTheme(
-                elevation: 0,
-                systemOverlayStyle: SystemUiOverlayStyle(
-                    statusBarColor: Color.fromRGBO(245, 245, 245, 1),
-                    statusBarBrightness: Brightness.light,
-                    statusBarIconBrightness: Brightness.dark),
+      child: GetMaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: theme.copyWith(
+            appBarTheme: const AppBarTheme(
+              elevation: 0,
+              systemOverlayStyle: SystemUiOverlayStyle(
+                  statusBarColor: Color.fromRGBO(245, 245, 245, 1),
+                  statusBarBrightness: Brightness.light,
+                  statusBarIconBrightness: Brightness.dark),
+            ),
+            scaffoldBackgroundColor: const Color.fromRGBO(245, 245, 245, 1),
+            textTheme: const TextTheme(
+                bodyText1: TextStyle(color: Colors.black, fontSize: 14),
+                headline6: TextStyle(
+                    color: Colors.black, fontWeight: FontWeight.bold)),
+            colorScheme: theme.colorScheme.copyWith(
+                primary: const Color.fromRGBO(245, 245, 245, 1),
+                secondary: const Color.fromRGBO(245, 245, 245, 1),
+                onBackground: Colors.black)),
+        darkTheme: ThemeData.dark().copyWith(
+          appBarTheme: const AppBarTheme(
+            elevation: 440,
+            backgroundColor: Color.fromRGBO(7, 7, 7, 1),
+            systemOverlayStyle: SystemUiOverlayStyle(
+              statusBarColor: Color.fromRGBO(7, 7, 7, 1),
+            ),
+          ),
+          scaffoldBackgroundColor: const Color.fromRGBO(7, 7, 7, 1),
+          colorScheme: ThemeData.dark().colorScheme.copyWith(
+                secondary: const Color.fromRGBO(31, 31, 31, 1),
               ),
-              scaffoldBackgroundColor: const Color.fromRGBO(245, 245, 245, 1),
-              textTheme: const TextTheme(
-                  bodyText1: TextStyle(color: Colors.black, fontSize: 14),
-                  headline6: TextStyle(
-                      color: Colors.black, fontWeight: FontWeight.bold)),
-              colorScheme: theme.colorScheme.copyWith(
-                  primary: const Color.fromRGBO(245, 245, 245, 1),
-                  secondary: const Color.fromRGBO(245, 245, 245, 1),
-                  onBackground: Colors.black)),
-          darkTheme: ThemeData.dark().copyWith(
-              appBarTheme: const AppBarTheme(
-                elevation: 440,
-                backgroundColor: Color.fromRGBO(7, 7, 7, 1),
-                systemOverlayStyle: SystemUiOverlayStyle(
-                  statusBarColor: Color.fromRGBO(7, 7, 7, 1),
-                ),
-              ),
-              scaffoldBackgroundColor: const Color.fromRGBO(7, 7, 7, 1),
-              colorScheme: ThemeData.dark().colorScheme.copyWith(
-                    secondary: const Color.fromRGBO(31, 31, 31, 1),
-                  )),
-          home: const MyHomePage(),
-          routes: {
-            Routes.information: (ctx) => const InformationScreen(),
-            Routes.history: (ctx) => const HistoryScreen(),
-            Routes.newWidget: (ctx) => const NewWidgetFormScreen(),
-            Routes.settings: (ctx) => const SettingsScreen(),
-          }),
+        ),
+        builder: (context, child) {
+          return const MyHomePage();
+        },
+        getPages: Pages.routes,
+      ),
     );
   }
 }
@@ -95,14 +92,14 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Your Widgets"),
         leading: IconButton(
-            onPressed: () => Navigator.of(context).pushNamed(Routes.history),
+            onPressed: () => Get.offAndToNamed(Routes.history),
             icon: const Icon(Icons.history)),
         actions: [
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: IconButton(
               onPressed: () {
-                Navigator.of(context).pushNamed(Routes.information);
+                Get.toNamed(Routes.information);
               },
               icon: const Icon(Icons.info_outline),
             ),
