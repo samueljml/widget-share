@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:widget_share/app/routes/Routes.dart';
+import 'package:widget_share/app/routes/routes.dart';
 import 'package:widget_share/app/utils/constants.dart';
 
 class WidgetActionsDialogBox extends StatelessWidget {

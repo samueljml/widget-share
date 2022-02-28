@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:widget_share/app/global_widgets/expandable_panel.dart';
-import 'package:widget_share/app/routes/Routes.dart';
+import 'package:widget_share/app/routes/routes.dart';
 
 class InformationScreen extends StatefulWidget {
   const InformationScreen({Key? key}) : super(key: key);
