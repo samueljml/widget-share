@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:widget_share/app/global_widgets/widget_actions_dialog_box.dart';
-import 'package:widget_share/app/routes/Routes.dart';
-import 'package:widget_share/app/routes/routes/pages.dart';
+import 'package:widget_share/app/routes/pages/pages.dart';
+import 'package:widget_share/app/routes/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     final ThemeData theme = ThemeData(primarySwatch: Colors.grey);
     return MediaQuery(
       data: const MediaQueryData(),
-      child: GetMaterialApp.router(
+      child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: theme.copyWith(
@@ -53,6 +53,7 @@ class MyApp extends StatelessWidget {
         builder: (context, child) {
           return const MyHomePage();
         },
+        key: Get.key,
         getPages: Pages.routes,
       ),
     );
@@ -92,14 +93,14 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Your Widgets"),
         leading: IconButton(
-            onPressed: () => Get.offAndToNamed(Routes.history),
+            onPressed: () => Get.rootDelegate.toNamed(Routes.history),
             icon: const Icon(Icons.history)),
         actions: [
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: IconButton(
               onPressed: () {
-                Get.toNamed(Routes.information);
+                Get.rootDelegate.toNamed(Routes.information);
               },
               icon: const Icon(Icons.info_outline),
             ),
